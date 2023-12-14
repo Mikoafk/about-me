@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>miko.afk</title>
+
+        <!-- CSS Styles -->
+        <link rel="stylesheet" href="/assets/css/index.css" />
+
+        <!-- Librerias -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"
+            integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    </head>
+    <body>
+        <div
+            id="loader-black"
+            class="container fade-black-load"
+            style="opacity: 0; pointer-events: none"
+        ></div>
+        <button
+            id="button-back"
+            onclick="backToMenu()"
+            class="button-back center bounce-with-bpm"
+            style="opacity: 0; pointer-events: none"
+        >
+            Volver
+        </button>
+
+        <div id="menu" class="container center">
+            <div id="button-options" class="home-button-mask center">
+                <ul id="options-list" class="home-options-list">
+                    <a onclick="goTo('about-me')" class="home-option">
+                        Sobre mí
+                    </a>
+                    <a onclick="goTo('projects')" class="home-option">
+                        Proyectos
+                    </a>
+                    <a onclick="goTo('redes')" class="home-option">
+                        Redes sociales
+                    </a>
+                </ul>
+                <div class="home-options-button center bounce-with-bpm">
+                    <h1 class="home-options-title">Miko!</h1>
+                </div>
+            </div>
+        </div>
+
+        <div id="about-me" class="container center">
+            <span class="alert">🚧 Sección en desarrollo 🚧</span>
+        </div>
+
+        <div id="projects" class="container center">
+            <span class="alert">🚧 Sección en desarrollo 🚧</span>
+        </div>
+
+        <div id="redes" class="container center">
+            <span class="alert">🚧 Sección en desarrollo 🚧</span>
+        </div>
+
+        <script type="text/javascript" src="/assets/js/index.js"></script>
+    </body>
+</html>

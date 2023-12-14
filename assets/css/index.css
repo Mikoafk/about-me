@@ -1,0 +1,128 @@
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    outline: none;
+    border: none;
+}
+
+html {
+    color: white;
+    font-size: 16px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* background: url("https://gif.plaza.one/74.gif") center / cover no-repeat; */
+    background-color: darkslateblue;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.fade-black-load {
+    position: fixed;
+    background: #000;
+    z-index: 99999;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-back {
+    color: #fff;
+    cursor: pointer;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    padding: 1rem 2rem;
+    background: palevioletred;
+    clip-path: polygon(7% 0%, 100% 0%, 93% 100%, 0% 100%);
+    transition: opacity 1s ease-in-out;
+    font-weight: bold;
+}
+
+.home-button-mask {
+    width: 25rem;
+    height: 25rem;
+    position: relative;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.home-options-button {
+    width: 100%;
+    height: 100%;
+    background-color: palevioletred;
+    border: 1rem solid white;
+    border-radius: 100%;
+}
+
+.home-options-title {
+    font-size: 7rem;
+}
+
+.home-options-list {
+    position: absolute;
+    clip-path: polygon(31% 0%, 1000% 0%, 1000% 1000%, 31% 1000%);
+    list-style: none;
+    transform-origin: center;
+    -ms-transform-origin: center;
+    -moz-transform-origin: center;
+    -o-transform-origin: center;
+    z-index: -100;
+}
+
+.home-option {
+    display: block;
+    width: 25rem;
+    font-size: 1.8rem;
+    text-align: end;
+    text-decoration: none;
+    color: white;
+    background: rgb(164, 139, 255);
+    padding: 1.5rem 3rem;
+    margin-bottom: 0.5rem;
+    transform: translateX(-10rem);
+    clip-path: polygon(0% 0%, 100% 0%, 93% 100%, 0% 100%);
+    transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.bounce-with-bpm {
+    animation: BounceScale calc(60000ms / 120) linear infinite;
+}
+
+.alert {
+    color: #000;
+    background: yellow;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+@keyframes BounceScale {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.95);
+    }
+}
