@@ -21,7 +21,7 @@ const blackScreen = document.getElementById("black-screen");
 
 /* Variables modificables, estás son para funciones dentro de la página y cambian constantemente. */
 let menuOptionsIsOpened = false;
-let actualSectionOpen = localStorage.getItem("actualSectionOpen") || "";
+let actualSectionOpen = localStorage.getItem("actualSectionOpen") || "menu";
 
 console.log("⭐ Cargando última página visitada:", actualSectionOpen);
 
