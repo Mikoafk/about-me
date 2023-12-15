@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
         <title>miko.afk</title>
 
         <!-- CSS Styles -->
         <link rel="stylesheet" href="/assets/css/index.css" />
+        <link rel="stylesheet" href="/assets/css/home-button.css" />
 
         <!-- Librerias -->
-        <script
-            src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-            crossorigin="anonymous"
-        ></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"
             integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA=="
@@ -22,30 +21,23 @@
         ></script>
     </head>
     <body>
-        <div
-            id="loader-black"
-            class="container fade-black-load"
-            style="opacity: 0; pointer-events: none"
-        ></div>
-        <button
-            id="button-back"
-            onclick="backToMenu()"
-            class="button-back center bounce-with-bpm"
-            style="opacity: 0; pointer-events: none"
-        >
-            Volver
-        </button>
+        <div id="black-screen" class="container black-screen visible center">
+            <h1 id="alert-no-compatible">
+                Por el momento, esta pagina no es compatible con dispositivos
+                moviles :/
+            </h1>
+        </div>
 
         <div id="menu" class="container center">
             <div id="button-options" class="home-button-mask center">
                 <ul id="options-list" class="home-options-list">
-                    <a onclick="goTo('about-me')" class="home-option">
+                    <a onclick="showSection('about-me')" class="home-option">
                         Sobre mí
                     </a>
-                    <a onclick="goTo('projects')" class="home-option">
+                    <a onclick="showSection('projects')" class="home-option">
                         Proyectos
                     </a>
-                    <a onclick="goTo('redes')" class="home-option">
+                    <a onclick="showSection('redes')" class="home-option">
                         Redes sociales
                     </a>
                 </ul>
@@ -56,7 +48,30 @@
         </div>
 
         <div id="about-me" class="container center">
-            <span class="alert">🚧 Sección en desarrollo 🚧</span>
+            <div class="card-aboutme">
+                <img
+                    id="avatar-discord"
+                    class="avatar"
+                    onerror="this.onerror=null;this.src='/assets/img/miko.png'"
+                />
+                <h1>Miko</h1>
+                <p>Desarrollador de software y amante al café ☕❤.</p>
+                <br />
+                <div style="text-align: start">
+                    <h3 style="margin-bottom: 0.5rem">⭐ Mis skills:</h3>
+                    <ul style="list-style: none">
+                        <li style="padding-left: 1rem">» Dev. Frontend</li>
+                        <li style="padding-left: 1rem">» Dev. Backend</li>
+                        <li style="padding-left: 1rem">
+                            » Dev. Bots de Discord
+                        </li>
+                        <li style="padding-left: 1rem">» Dev. Juegos 2D</li>
+                        <li style="padding-left: 1rem">» Diseñador gráfico</li>
+                        <li style="padding-left: 1rem">» Editor de videos</li>
+                        <li style="padding-left: 1rem">» Artista pixelart</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div id="projects" class="container center">
@@ -67,6 +82,24 @@
             <span class="alert">🚧 Sección en desarrollo 🚧</span>
         </div>
 
+        <button
+            id="button-back"
+            class="button-back center bounce-with-bpm invisible"
+        >
+            Volver
+        </button>
+
         <script type="text/javascript" src="/assets/js/index.js"></script>
+        <script type="text/javascript">
+            fetch(
+                "https://discordlookup.mesavirep.xyz/v1/user/654015894489399334"
+            ).then(async (res) => {
+                const dataUser = await res.json();
+
+                document
+                    .getElementById("avatar-discord")
+                    .setAttribute("src", dataUser.avatar.link);
+            });
+        </script>
     </body>
 </html>

@@ -1,3 +1,7 @@
+:root {
+    --clip-rhomboid: polygon(7% 0%, 100% 0%, 93% 100%, 0% 100%);
+}
+
 *,
 ::after,
 ::before {
@@ -5,10 +9,10 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     -webkit-user-select: none;
     -moz-user-select: none;
-    outline: none;
-    border: none;
 }
 
 html {
@@ -23,20 +27,28 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    /* background: url("https://gif.plaza.one/74.gif") center / cover no-repeat; */
+    background: url("/assets/img/background.jpg") center / cover no-repeat;
+    background-size: 110% 110%;
     background-color: darkslateblue;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+a,
+a:active,
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
 }
 
 .container {
     width: 100%;
     height: 100%;
-}
-
-.fade-black-load {
-    position: fixed;
-    background: #000;
-    z-index: 99999;
-    transition: opacity 0.5s ease-in-out;
+    position: relative;
 }
 
 .center {
@@ -45,84 +57,98 @@ body {
     align-items: center;
 }
 
-.button-back {
-    color: #fff;
-    cursor: pointer;
+.column {
+    flex-direction: column;
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.invisible {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.black-screen {
     position: fixed;
-    bottom: 1rem;
-    left: 1rem;
+    background: #000;
+    z-index: 99999;
+    transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
+}
+
+.button-back {
+    position: fixed;
+    left: 3rem;
+    bottom: 3rem;
     padding: 1rem 2rem;
     background: palevioletred;
-    clip-path: polygon(7% 0%, 100% 0%, 93% 100%, 0% 100%);
-    transition: opacity 1s ease-in-out;
+    clip-path: var(--clip-rhomboid);
     font-weight: bold;
-}
-
-.home-button-mask {
-    width: 25rem;
-    height: 25rem;
-    position: relative;
+    color: #fff;
     cursor: pointer;
-    z-index: 1000;
-    transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.home-options-button {
-    width: 100%;
-    height: 100%;
-    background-color: palevioletred;
-    border: 1rem solid white;
-    border-radius: 100%;
-}
-
-.home-options-title {
-    font-size: 7rem;
-}
-
-.home-options-list {
-    position: absolute;
-    clip-path: polygon(31% 0%, 1000% 0%, 1000% 1000%, 31% 1000%);
-    list-style: none;
-    transform-origin: center;
-    -ms-transform-origin: center;
-    -moz-transform-origin: center;
-    -o-transform-origin: center;
-    z-index: -100;
-}
-
-.home-option {
-    display: block;
-    width: 25rem;
-    font-size: 1.8rem;
-    text-align: end;
-    text-decoration: none;
-    color: white;
-    background: rgb(164, 139, 255);
-    padding: 1.5rem 3rem;
-    margin-bottom: 0.5rem;
-    transform: translateX(-10rem);
-    clip-path: polygon(0% 0%, 100% 0%, 93% 100%, 0% 100%);
-    transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
-}
-
-.bounce-with-bpm {
-    animation: BounceScale calc(60000ms / 120) linear infinite;
+    transition: opacity 1s ease-in-out;
 }
 
 .alert {
     color: #000;
-    background: yellow;
+    background: rgba(251, 255, 0, 0.6);
     border-radius: 1rem;
     padding: 1rem;
     font-size: 2rem;
 }
 
-@keyframes BounceScale {
+.avatar {
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 0.5rem;
+    border-radius: 100%;
+}
+
+.card-aboutme {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.bounce-with-bpm {
+    animation: bounceAnim calc(60000ms / 120) linear infinite;
+}
+
+#alert-no-compatible {
+    padding: 1rem;
+    text-align: center;
+    display: none;
+}
+
+@keyframes bounceAnim {
     0% {
         transform: scale(1);
     }
 
     100% {
         transform: scale(0.95);
+    }
+}
+
+@media screen and (max-width: 840px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .black-screen {
+        opacity: 1 !important;
+        pointer-events: all;
+    }
+
+    #alert-no-compatible {
+        display: block;
     }
 }

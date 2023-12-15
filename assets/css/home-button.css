@@ -1,0 +1,50 @@
+.home-button-mask {
+    width: 25rem;
+    height: 25rem;
+    position: relative;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+    -o-transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+    -moz-transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+    -webkit-transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.home-options-button {
+    width: 100%;
+    height: 100%;
+    border: 1rem solid white;
+    border-radius: 100%;
+    background-color: palevioletred;
+}
+
+.home-options-title {
+    font-size: 7rem;
+}
+
+.home-options-list {
+    position: absolute;
+    clip-path: polygon(31% 0%, 1000% 0%, 1000% 1000%, 31% 1000%);
+    list-style: none;
+    z-index: -100;
+    transform-origin: center;
+    -ms-transform-origin: center;
+    -moz-transform-origin: center;
+    -o-transform-origin: center;
+}
+
+.home-option {
+    width: 25rem;
+    display: block;
+    background: rgb(164, 139, 255);
+    padding: 1.5rem 3rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    text-align: end;
+    transform: translateX(-10rem);
+    clip-path: var(--clip-rhomboid);
+    transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+    -o-transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+    -moz-transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+    -webkit-transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+}
